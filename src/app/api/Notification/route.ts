@@ -14,7 +14,7 @@ import dbConnect from "@/lib/dbConnect";
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 import { authOptions } from "../auth/[...nextauth]/options";
-import { Notification } from "@repo/models";
+import  Notification  from "@/model/Notification";
 
 //create a notification
 export async function POST(request: NextRequest){

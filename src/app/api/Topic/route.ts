@@ -1,6 +1,6 @@
 import dbConnect from "@/lib/dbConnect";
 import { NextRequest, NextResponse } from "next/server";
-import { Topic } from "@repo/models";
+import Topic  from "@/model/topic";
 
 
 

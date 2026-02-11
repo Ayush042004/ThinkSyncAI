@@ -3,7 +3,7 @@ import dbConnect from "@/lib/dbConnect";
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "../auth/[...nextauth]/options";
-import { Message } from "@repo/models";
+import  Message  from "@/model/message";
 import { success } from "zod";
 
 
@@ -18,7 +18,7 @@ const session = await getServerSession(authOptions)
 //agar session nhi mila ya fir session se user nhi mila then the user is not authenticated
 if(!session||!session.user){
 return NextResponse.json({
-    success:false , Message:"User not authenticated kindly login"
+    success:false , message:"User not authenticated kindly login"
 },{status:400})
 }
 //senderid aur koi nhi user id hi toh hai jo humme session se nikalni hai
@@ -28,19 +28,19 @@ try {
     const {sessionId , content , messageType = "text" , fileUrl=null , fileName=null} = await request.json()
     if (sessionId) {
         return NextResponse.json({
-            success:false , Message:"SessionId not found"
+            success:false , message:"SessionId not found"
         })
     }
     
     if (!content) {
          return NextResponse.json({
-            success:false , Message:"cannot send Empty Messsage"
+            success:false , message:"cannot send Empty Messsage"
         })
     }
 
     if (!content.includes(MessageTypes)) {
         return NextResponse.json({
-            success:false , Message:"cannot send this type of message"
+            success:false , message:"cannot send this type of message"
         })
     }
 
@@ -57,7 +57,7 @@ try {
     
 } catch (error) {
     return NextResponse.json({
-        success:false , Message:"Error"
+        success:false , message:"Error"
     },{status:401})
 }
 }

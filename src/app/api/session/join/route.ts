@@ -1,9 +1,9 @@
 import dbConnect from "@/lib/dbConnect";
-import { Session } from "@repo/models";
+import  Session  from "@/model/Session";
 import { NextRequest } from "next/server";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "../../auth/[...nextauth]/options";
-import { UserModel } from "@repo/models";
+import  UserModel  from "@/model/UserModel";
 import { User } from "next-auth";
 
 export async function PUT(request: NextRequest) {

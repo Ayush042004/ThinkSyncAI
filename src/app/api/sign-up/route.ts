@@ -1,5 +1,5 @@
 import dbConnect from "@/lib/dbConnect";
-import { UserModel } from "@repo/models";
+import  UserModel  from "@/model/UserModel";
 import bcrypt from "bcryptjs";
 
 

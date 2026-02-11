@@ -3,7 +3,7 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
 import bcrypt from 'bcryptjs';
 import dbConnect from '@/lib/dbConnect';
-import { UserModel } from "@repo/models";
+import UserModel from '@/model/UserModel';
 
 
 interface CustomUser {

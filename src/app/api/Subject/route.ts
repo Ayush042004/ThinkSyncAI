@@ -7,7 +7,7 @@ import dbConnect from "@/lib/dbConnect";
 import { NextRequest,NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "../auth/[...nextauth]/options";
-import { Subject } from "@repo/models";
+import  Subject  from "@/model/subject";
 
 
 
@@ -19,7 +19,7 @@ const session = await getServerSession(authOptions)
 //agar session nhi mila ya fir session se user nhi mila then the user is not authenticated
 if(!session||!session.user){
 return NextResponse.json({
-    success:false , Message:"User not authenticated kindly login"
+    success:false , message:"User not authenticated kindly login"
 },{status:400})
 }
 //ab agar session se user mil jata hai hum usse subjects khud create krne ka option denge uske liye input lenge
@@ -27,12 +27,12 @@ try {
     const {name , description,sessionId } = await request.json()
     if (!sessionId) {
         return NextResponse.json({
-      success:false , Message:"No session Found"
+      success:false , message:"No session Found"
       },{status:400})
     }
     if(!name||!description){
         return NextResponse.json({
-      success:false , Message:"Name and description about the subject is required"
+      success:false , message:"Name and description about the subject is required"
       },{status:400})
     }
     
